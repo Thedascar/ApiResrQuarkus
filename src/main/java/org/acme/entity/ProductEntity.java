@@ -16,8 +16,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor // jaz o construtor com os dados
 @NoArgsConstructor // faz o construtor vazio
 public class ProductEntity {
-    @Id
-    @GeneratedValue
+    @Id // mostra qual arquivo é o id
+    @GeneratedValue // gera automaticamente os valores de id
     private Long id;
 
     private String name;
