@@ -17,9 +17,7 @@ public class ProductService {
     ProductRepository productRepository;
 
     public List<ProductDTO> getAllProducts(){
-
         List<ProductDTO> products = new ArrayList<>();
-
         productRepository.findAll().stream().forEach(item -> {
             products.add(mapProductEntityToDTO(item));
         });
@@ -31,9 +29,7 @@ public class ProductService {
     }
 
     public void changeProduct(Long id,ProductDTO productDTO){
-
         ProductEntity productEntity = productRepository.findById(id);
-
         productEntity.setName(productDTO.getName());
         productEntity.setCategory(productDTO.getCategory());
         productEntity.setModel(productDTO.getModel());
@@ -48,12 +44,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-
-
     private ProductDTO mapProductEntityToDTO(ProductEntity productEntity){
-
         ProductDTO product = new ProductDTO();
-
         product.setName(productEntity.getName());
         product.setDescription(productEntity.getDescription());
         product.setCategory(productEntity.getCategory());

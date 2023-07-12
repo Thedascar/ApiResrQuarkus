@@ -35,8 +35,8 @@ public class ProductController {
     }
 
     @PUT // metodo que adiciona os arquivos
-    @Transactional // identifica a classe que vai alterar o estado do banco de dados
-    // @PathParam ira exigir o id do arquivo para que ocorra a ação
+    @Path("/{id}")
+    @Transactional // identifica a classe que vai alterar o estado do banco de dados @PathParam com @Path-id ira exigir o id do arquivo para que ocorra a ação
     public Response changeProduct(@PathParam("id") Long id, ProductDTO productDTO){
         try{
             productService.changeProduct(id,productDTO);
@@ -48,8 +48,8 @@ public class ProductController {
     }
 
     @DELETE // metodo que faz um delete no banco de dados
-    @Transactional  // identifica a classe que vai alterar o estado do banco de dados
-    // @PathParam ira exigir o id do arquivo para que ocorra a ação
+    @Path("/{id}")
+    @Transactional  // identifica a classe que vai alterar o estado do banco de dados @PathParam com @Path-id  ira exigir o id do arquivo para que ocorra a ação
     public Response removeProduct(@PathParam("id") Long id){
         try{
             productService.deleteProduct(id);
