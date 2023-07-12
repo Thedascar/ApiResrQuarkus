@@ -9,10 +9,10 @@ import lombok.extern.jackson.Jacksonized;
 import java.math.BigDecimal;
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Jacksonized
+@Data // Data ja cria os getters e setter da classe
+@AllArgsConstructor // jaz o construtor com os dados
+@NoArgsConstructor // faz o construtor vazio
+@Jacksonized // infirma que essa classe pode receber json
 public class ProductDTO {
 
     private String name;

@@ -10,20 +10,20 @@ import org.acme.service.ProductService;
 
 import java.util.List;
 
-@Path("api/products")
+@Path("api/products") // caminho que os arquivos externos vao consumir os endpoints
 public class ProductController {
 
     @Inject
     ProductService productService;
 
-    @GET
+    @GET // metodo que mostra os arquivos
     @Produces(MediaType.APPLICATION_JSON)
     public List<ProductDTO> findAllProducts(){
         return productService.getAllProducts();
     }
 
-    @POST
-    @Transactional
+    @POST // metodo que adiciona os arquivos
+    @Transactional // identifica a classe que vai alterar o estado do banco de dados
     public Response saveProduct(ProductDTO productDTO){
         try{
             productService.createNewProduct(productDTO);
@@ -34,8 +34,9 @@ public class ProductController {
         }
     }
 
-    @PUT
-    @Transactional
+    @PUT // metodo que adiciona os arquivos
+    @Transactional // identifica a classe que vai alterar o estado do banco de dados
+    // @PathParam ira exigir o id do arquivo para que ocorra a ação
     public Response changeProduct(@PathParam("id") Long id, ProductDTO productDTO){
         try{
             productService.changeProduct(id,productDTO);
@@ -46,8 +47,9 @@ public class ProductController {
         }
     }
 
-    @DELETE
-    @Transactional
+    @DELETE // metodo que faz um delete no banco de dados
+    @Transactional  // identifica a classe que vai alterar o estado do banco de dados
+    // @PathParam ira exigir o id do arquivo para que ocorra a ação
     public Response removeProduct(@PathParam("id") Long id){
         try{
             productService.deleteProduct(id);

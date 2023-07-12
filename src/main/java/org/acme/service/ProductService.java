@@ -9,10 +9,11 @@ import org.acme.repository.ProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@ApplicationScoped // aplicationscoped é uma notação como @service ou @repositor
+// esta notação da ao quarkus o poder de gerenciar está classe
 public class ProductService {
 
-    @Inject
+    @Inject //  faz a injecao da classe (dependencia) simialr ao @autowired
     ProductRepository productRepository;
 
     public List<ProductDTO> getAllProducts(){
